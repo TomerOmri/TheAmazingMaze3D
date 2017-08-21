@@ -24,19 +24,19 @@ public class Joystick : MonoBehaviour,IDragHandler, IPointerUpHandler, IPointerD
 			ped.pressEventCamera,
 			out position);
 
-		position.x = (position.x/jsContainer.rectTransform.sizeDelta.x);
-		position.y = (position.y/jsContainer.rectTransform.sizeDelta.y);
-
+		position.x = (position.x/jsContainer.rectTransform.sizeDelta.x);//+joystick.rectTransform.sizeDelta.x;
+		position.y = (position.y / jsContainer.rectTransform.sizeDelta.y);//+joystick.rectTransform.sizeDelta.y;
+		//Debug.Log (joystick.rectTransform.sizeDelta.y	);
 		float x = (jsContainer.rectTransform.pivot.x == 1f) ? position.x *2 + 1 : position.x *2 - 1;
-		float z = (jsContainer.rectTransform.pivot.y == 1f) ? position.y *2 + 1 : position.y *2 - 1;
+		float y = (jsContainer.rectTransform.pivot.y == 1f) ? position.y *2 + 1 : position.y *2 - 1;
 
-		InputDirection = new Vector3 (x,0,z);
+		InputDirection = new Vector3 (x,0,y);
 		InputDirection = (InputDirection.magnitude > 1) ? InputDirection.normalized : InputDirection;
 
 		//to define the area in which joystick can move around
-		joystick.rectTransform.anchoredPosition = new Vector3 (InputDirection.x * (jsContainer.rectTransform.sizeDelta.x/3)
-			,InputDirection.z * (jsContainer.rectTransform.sizeDelta.y)/3);
-		
+		joystick.rectTransform.anchoredPosition = new Vector2 (InputDirection.x * (jsContainer.rectTransform.sizeDelta.x)/3
+			,InputDirection.y * (jsContainer.rectTransform.sizeDelta.y)/3 /*+ (joystick.rectTransform.sizeDelta.y*2f/Screen.height)*/);
+
 	}
 
 	public void OnPointerDown(PointerEventData ped){
