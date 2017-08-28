@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
-	private float Direction = 1f;
-	[SerializeField] float Speed = 1f;
+	private int curr = 0;
+	public Transform[] target;
+
+	[SerializeField] float speed = 1f;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,13 +15,11 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		move ();
-	}
-
-	void move(){
-
-		Vector3 movemen = new Vector3 (0f, 0f, Direction);
-		GetComponent<Rigidbody> ().AddForce (movemen * Speed);
-
+		if (transform.position != target[curr].position) {
+			Vector3 pos = Vector3.MoveTowards (transform.position, target[curr].position, speed * Time.deltaTime);
+			GetComponent<Rigidbody> ().MovePosition (pos);
+		} else {
+			curr = (curr + 1) % target.Length;
+		}
 	}
 }

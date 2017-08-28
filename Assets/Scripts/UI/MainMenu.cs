@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	public void howToPlay(){
-		gameObject
+		//gameObject
 	}
 		
 }
