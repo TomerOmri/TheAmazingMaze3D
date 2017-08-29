@@ -1,45 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BallMovement : MonoBehaviour {
-	/*public float MoveSpeed = 5f;
-	public float drag = 0.5f;
-	public float terminalRotationSpeed = 25f;
-	public Vector3 MoveVector{ set;get;}
-	//public VirtualJoystick Joystick;
-	private Rigidbody BallRigidBody;*/
+	[SerializeField] float speed = 10f;
+	private Rigidbody rb;
+	public int livesOfPlayer = 3;
+	public Text livesText;
 
-	// Use this for initialization
-	void Start () {
-		/*BallRigidBody = gameObject.AddComponent<Rigidbody> ();
-		BallRigidBody.maxAngularVelocity = terminalRotationSpeed;
-		BallRigidBody.drag = drag;*/
+	void Start(){
+		Lives ();
+		rb = GetComponent<Rigidbody> ();
+	}
+	// Each physics step..
+	void FixedUpdate ()
+	{
+		float moveHorizontal = Input.GetAxis ("Horizontal");
+		float moveVertical = Input.GetAxis ("Vertical");
+	
+		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+		rb.AddForce (movement * speed);
 	}
 
-	// Update is called once per frame
-	void Update () {
-//		MoveVector = PoolInput();
-		//Move ();
-
+	void Lives(){
+		livesText.text = "Lives:" + livesOfPlayer.ToString ();
 	}
-
-	private void Move(){
-		//BallRigidBody.AddForce ((MoveVector * MoveSpeed));
-	}
-
-//	private Vector3 PoolInput(){
-//		Vector3 dir = Vector3.zero;
-//		dir.x = Joystick.Horizonal ();
-//		dir.y = Joystick.Vertical ();
-//
-//		if (dir.magnitude > 1) {
-//			dir.Normalize ();
-//		}
-//
-//		Vector3 rotatedDir = camTransform.TransformDirection (dir);
-//		rotatedDir = new Vector3 (rotatedDir.x, 0, rotatedDir.z);
-//		rotatedDir = rotatedDir.normalized * dir.magnitude;
-//
-//	}
 }

@@ -1,10 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\MainMenu.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameLogic\CameraController.cs">
     <Files>
-      <File FileName="Assets\Scripts\UI\MainMenu.cs" Line="13" Column="5" />
+      <File FileName="Assets\Scripts\GameLogic\BallMovement.cs" Line="23" Column="1" />
+      <File FileName="Assets\Scripts\UI\MainMenu.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\UI\howToPlayController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\MenuPanelController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\MenuPanelController.cs" Line="7" Column="1" />
+      <File FileName="Assets\Scripts\GameLogic\CameraController.cs" Line="14" Column="5" />
+      <File FileName="Assets\Scripts\UI\LivesController.cs" Line="7" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

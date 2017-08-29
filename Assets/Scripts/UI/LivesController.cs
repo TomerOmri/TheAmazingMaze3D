@@ -1,15 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class MenuPanelController : MonoBehaviour {
-	public void showMainMenu(){
+public class LivesController : MonoBehaviour {
+
+	public void showLives(){
 		gameObject.SetActive (true);
 	}
 
-	public void hideMainMenu(){
+	public void hideLives(){
 		gameObject.SetActive (false);
 	}
-
 }
