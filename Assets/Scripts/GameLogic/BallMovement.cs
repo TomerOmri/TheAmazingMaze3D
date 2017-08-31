@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BallMovement : MonoBehaviour {
 	[SerializeField] float speed = 10f;
@@ -25,5 +26,15 @@ public class BallMovement : MonoBehaviour {
 
 	void Lives(){
 		livesText.text = "Lives:" + livesOfPlayer.ToString ();
+	}
+
+	void OnTriggerEnter(Collider other){
+	
+		//livesText.text = "You fall!";
+		//livesOfPlayer--;
+		//Lives ();
+		//DontDestroyOnLoad (this);
+		//Application.LoadLevel(Application.loadedLevel);
+		SceneManager.LoadScene("MainMenu");
 	}
 }

@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class CameraController : MonoBehaviour {
 	public GameObject player;
 	private Vector3 offset;
-	public Text livesText;
+	public Canvas livesCanvas;
 
 	// Use this for initialization
 	void Start () {
 		offset = transform.position - player.transform.position;
-		//livesText.
+	//	livesCanvas.gameObject.SetActive (true);
+
 	}
 	
 	// Update is called once per frame
