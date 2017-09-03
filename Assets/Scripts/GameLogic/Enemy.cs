@@ -15,9 +15,9 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (transform.position != target[curr].position) {
-			Vector3 pos = Vector3.MoveTowards (transform.position, target[curr].position, speed * Time.deltaTime);
-			GetComponent<Rigidbody> ().MovePosition (pos);
+		if (Vector3.Distance( transform.position , target[curr].position)>0.15f) {
+			transform.position = Vector3.Lerp (transform.position, target[curr].position,  Time.deltaTime);
+			//GetComponent<Rigidbody> ().MovePosition (pos);
 		} else {
 			curr = (curr + 1) % target.Length;
 		}
