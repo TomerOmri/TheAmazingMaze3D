@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\GameLogic\BallMovement.cs" />
      <Compile Include="Assets\Scripts\GameLogic\CameraController.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Enemy.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\GameManager.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Motor.cs" />
      <Compile Include="Assets\Scripts\UI\Joystick.cs" />
      <Compile Include="Assets\Scripts\UI\LivesController.cs" />

@@ -23,19 +23,29 @@ public class BallMovement : MonoBehaviour {
 		rb.AddForce (movement * speed);
 	}
 
+	private void Dead(){
+		if (GameManager.Instance.SubLive ()) {
+			//if lives == 0
+			//need to show you Lose and reset
+		}
+	}
+
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.name == "base") {
+			Dead ();
 			rb.velocity = new Vector3 (0, 0, 0);
 			rb.isKinematic = true;
 			transform.position = GameObject.Find ("ResponePoint").transform.position;
 			rb.isKinematic = false;
 		} else if (other.gameObject.name == "colider") {
+			Dead ();
 			rb.velocity = new Vector3 (0, 0, 0);
 			rb.isKinematic = true;
 			transform.position = GameObject.Find ("Respone2").transform.position;
 			rb.isKinematic = false;
 		} else if (other.gameObject.name == "FinishHole") {
 			//need to print You win and the Time and fallTimes
+			GameManager.Instance.finishLevel();
 		}
 
 	}

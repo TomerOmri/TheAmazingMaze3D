@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
 	public void startNewGame(){
 		SceneManager.LoadScene (0);
+		//Application.LoadLevel (1);
+		GameManager.Instance.SetActiveGameCanvas (true);
 	}
 
 	public void howToPlay(){
