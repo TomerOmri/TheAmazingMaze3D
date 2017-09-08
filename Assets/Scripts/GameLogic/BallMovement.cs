@@ -25,8 +25,7 @@ public class BallMovement : MonoBehaviour {
 
 	private void Dead(){
 		if (GameManager.Instance.SubLive ()) {
-			//if lives == 0
-			//need to show you Lose and reset
+			GameManager.Instance.GameOver ();
 		}
 	}
 

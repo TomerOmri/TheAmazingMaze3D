@@ -15,6 +15,7 @@ public sealed class GameManager:MonoBehaviour
 	[SerializeField] private Text timeText;
 	[SerializeField] private Text WinTimeText;
 	[SerializeField] private GameObject WinnerCanvas;
+	[SerializeField] private GameObject GameOverCanvas;
 	private int lives = 3;
 
 	public static GameManager Instance {
@@ -135,5 +136,11 @@ public sealed class GameManager:MonoBehaviour
 	public void MainMenu(){
 		Time.timeScale = 1;
 		SceneManager.LoadScene (1);
+	}
+
+	public void GameOver(){
+		Reset ();
+		Time.timeScale = 0;
+		GameOverCanvas.gameObject.SetActive(true);
 	}
 }
