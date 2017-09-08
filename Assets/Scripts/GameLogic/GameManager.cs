@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public sealed class GameManager:MonoBehaviour
 {
@@ -13,6 +14,7 @@ public sealed class GameManager:MonoBehaviour
 	[SerializeField] private Text livesText;
 	[SerializeField] private Text timeText;
 	[SerializeField] private Text WinTimeText;
+	[SerializeField] private GameObject WinnerCanvas;
 	private int lives = 3;
 
 	public static GameManager Instance {
@@ -85,6 +87,10 @@ public sealed class GameManager:MonoBehaviour
 	//TODO
 	public void finishLevel(){
 		SaveScore ((minCount * 60 )+ secondsCount);
+		WinTimeText.text = string.Format ("{0}:{1}",minCount,secondsCount);
+		Reset ();
+		Time.timeScale = 0;
+		WinnerCanvas.gameObject.SetActive(true);
 		//need to show winner text and score
 	}
 
@@ -92,21 +98,21 @@ public sealed class GameManager:MonoBehaviour
 	/// Saving score if needed
 	/// </summary>
 	public void SaveScore(float score){
-		List<float> scores = new List<float>();
-		int worstIndex = 0;
-		float worst = 0;
-		for (int i = 1; i < 11; i++) {
-			scores.Add(PlayerPrefs.GetFloat("Score"+i));
-		}
-		for(int i = 1; i < 11; i++){
-			if (scores [i - 1] > worst) {
-				worst = scores [i - 1];
-				worstIndex = i;
+		float temp;
+
+		for(int i=1; i<=10; i++)
+		{
+			if(PlayerPrefs.GetFloat("Score"+i.ToString())>score)     //if cuurent score is in top 5
+			{
+				temp=PlayerPrefs.GetFloat("Score"+i.ToString());     //store the old highscore in temp varible to shift it down 
+				PlayerPrefs.SetFloat("Score"+i.ToString(),score);     //store the currentscore to highscores
+				if(i<10)                                        //do this for shifting scores down
+				{
+					int j=i+1;
+					score = PlayerPrefs.GetFloat("Score"+j.ToString());
+					PlayerPrefs.SetFloat("Score"+j.ToString(),temp);    
+				}
 			}
-		}
-		//the new score is better then the worst
-		if(score < worst){
-			PlayerPrefs.SetFloat("Score"+worstIndex,score);
 		}
 	}
 
@@ -118,5 +124,16 @@ public sealed class GameManager:MonoBehaviour
 				PlayerPrefs.SetInt ("Score" + i.ToString (), defScore);
 			}
 		}
+	}
+
+	public void RestartGame(){
+		Time.timeScale = 1;
+		Reset ();
+		SceneManager.LoadScene (0);
+	}
+
+	public void MainMenu(){
+		Time.timeScale = 1;
+		SceneManager.LoadScene (1);
 	}
 }
