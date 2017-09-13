@@ -8,7 +8,7 @@ public sealed class GameManager:MonoBehaviour
 {
 	private static volatile GameManager instance;
 	private static object syncRoot = new Object();
-	private float secondsCount = 0;
+	private int secondsCount = 0;
 	private int minCount = 0;
 	private float startTime = 0;
 	[SerializeField] private Text livesText;
@@ -82,7 +82,6 @@ public sealed class GameManager:MonoBehaviour
 
 	void Awake(){
 		instance = this;
-		InitializeScore ();
 	}
 
 	//TODO
@@ -98,34 +97,26 @@ public sealed class GameManager:MonoBehaviour
 	/// <summary>
 	/// Saving score if needed
 	/// </summary>
-	public void SaveScore(float score){
-		float temp;
+	public void SaveScore(int score){
+		int temp;
 
 		for(int i=1; i<=10; i++)
 		{
-			if(PlayerPrefs.GetFloat("Score"+i.ToString())>score)     //if cuurent score is in top 5
+			if(PlayerPrefs.GetInt("Score"+i.ToString())>score)     //if cuurent score is in top 10
 			{
-				temp=PlayerPrefs.GetFloat("Score"+i.ToString());     //store the old highscore in temp varible to shift it down 
-				PlayerPrefs.SetFloat("Score"+i.ToString(),score);     //store the currentscore to highscores
+				temp=PlayerPrefs.GetInt("Score"+i.ToString());     //store the old highscore in temp varible to shift it down 
+				PlayerPrefs.SetInt("Score"+i.ToString(),score);     //store the currentscore to highscores
 				if(i<10)                                        //do this for shifting scores down
 				{
 					int j=i+1;
-					score = PlayerPrefs.GetFloat("Score"+j.ToString());
-					PlayerPrefs.SetFloat("Score"+j.ToString(),temp);    
+					score = PlayerPrefs.GetInt("Score"+j.ToString());
+					PlayerPrefs.SetInt("Score"+j.ToString(),temp);    
 				}
 			}
 		}
 	}
 
-	private void InitializeScore(){
-		int defScore = 9999999;
-		//first time you play
-		if (PlayerPrefs.HasKey ("Score1") == null) {
-			for (int i = 1; i < 11; i++) {
-				PlayerPrefs.SetInt ("Score" + i.ToString (), defScore);
-			}
-		}
-	}
+
 
 	public void RestartGame(){
 		Time.timeScale = 1;

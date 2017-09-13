@@ -50,11 +50,14 @@
      <Compile Include="Assets\Scripts\GameLogic\CameraController.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Enemy.cs" />
      <Compile Include="Assets\Scripts\GameLogic\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GameLogic\InitializeApp.cs" />
      <Compile Include="Assets\Scripts\GameLogic\Motor.cs" />
      <Compile Include="Assets\Scripts\UI\Joystick.cs" />
      <Compile Include="Assets\Scripts\UI\LivesController.cs" />
      <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
      <Compile Include="Assets\Scripts\UI\MenuPanelController.cs" />
+     <Compile Include="Assets\Scripts\UI\ScoreBox.cs" />
+     <Compile Include="Assets\Scripts\UI\eventScript.cs" />
      <Compile Include="Assets\Scripts\UI\howToPlayController.cs" />
      <None Include="Assets\Plugins\NatureStarterKit2\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Plugins\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />

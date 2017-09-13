@@ -12,4 +12,7 @@ public class MenuPanelController : MonoBehaviour {
 		gameObject.SetActive (false);
 	}
 
+	public void quit(){
+		Application.Quit ();
+	}
 }
