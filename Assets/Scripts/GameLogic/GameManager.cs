@@ -121,12 +121,12 @@ public sealed class GameManager:MonoBehaviour
 	public void RestartGame(){
 		Time.timeScale = 1;
 		Reset ();
-		SceneManager.LoadScene (0);
+		SceneManager.LoadScene (1);
 	}
 
 	public void MainMenu(){
 		Time.timeScale = 1;
-		SceneManager.LoadScene (1);
+		SceneManager.LoadScene (0);
 	}
 
 	public void GameOver(){

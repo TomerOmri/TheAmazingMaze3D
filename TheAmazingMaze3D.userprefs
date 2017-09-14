@@ -1,19 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\ScoreBox.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\MenuPanelController.cs">
     <Files>
       <File FileName="Assets\Scripts\GameLogic\BallMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\MenuPanelController.cs" Line="7" Column="29" />
-      <File FileName="Assets\Scripts\GameLogic\GameManager.cs" Line="113" Column="54" />
-      <File FileName="Assets\Scripts\UI\MainMenu.cs" Line="19" Column="5" />
-      <File FileName="Assets\Scripts\UI\ScoreBox.cs" Line="19" Column="34" />
-      <File FileName="Assets\Scripts\GameLogic\InitializeApp.cs" Line="31" Column="1" />
+      <File FileName="Assets\Scripts\UI\MenuPanelController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameLogic\GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\MainMenu.cs" Line="7" Column="40" />
+      <File FileName="Assets\Scripts\UI\ScoreBox.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\eventScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="C:\Users\shlomi\Desktop\TheAmazingMaze3D\Assets\Scripts\UI\ScoreBox.cs" line="21" column="1" />
-      <Breakpoint file="C:\Users\shlomi\Desktop\TheAmazingMaze3D\Assets\Scripts\GameLogic\InitializeApp.cs" line="24" column="22" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
